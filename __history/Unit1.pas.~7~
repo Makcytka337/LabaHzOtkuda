@@ -1,0 +1,269 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    Edit1: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Button10: TButton;
+    Button11: TButton;
+    Button12: TButton;
+    Button13: TButton;
+    Button14: TButton;
+    Button15: TButton;
+    Button16: TButton;
+    Button17: TButton;
+    Button18: TButton;
+    Button19: TButton;
+    Button20: TButton;
+    Edit2: TEdit;
+    RadioGroup1: TRadioGroup;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure Button19Click(Sender: TObject);
+    procedure Button13Click(Sender: TObject);
+    procedure Button14Click(Sender: TObject);
+    procedure Button11Click(Sender: TObject);
+    procedure Button15Click(Sender: TObject);
+    procedure Button16Click(Sender: TObject);
+    procedure Button17Click(Sender: TObject);
+    procedure Button18Click(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
+    procedure Button20Click(Sender: TObject);
+    procedure Edit2Change(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  posit, d, ee:integer;
+  cis: string[255];
+  z, e, xy: bool;
+  x, y, b:real;
+
+implementation
+
+{$R *.dfm}
+
+//запятая
+procedure TForm1.Button11Click(Sender: TObject);
+begin
+if z=false then begin
+  posit:=posit+1;
+  Edit1.Text:=Edit1.Text+',';
+  z:=true;
+end;
+end;
+
+//стереть 1
+procedure TForm1.Button13Click(Sender: TObject);
+var s:string[255];
+begin
+  s:=Edit1.Text;
+  if s[posit]=',' then z:=false;
+  if s[posit]='e' then e:=false;
+  delete(s, posit, 256);
+  Edit1.Text:=s;
+  if posit>0 then posit:=posit-1;
+end;
+
+//стереть всё
+procedure TForm1.Button14Click(Sender: TObject);
+begin
+Edit1.Text:='';
+end;
+
+//Плюс
+procedure TForm1.Button15Click(Sender: TObject);
+begin
+x:=StrToFloat(Edit1.Text);
+Edit1.Text:='';
+xy:=true;
+d:=1;
+posit:=0;
+end;
+
+//минус
+procedure TForm1.Button16Click(Sender: TObject);
+begin
+x:=StrToFloat(Edit1.Text);
+Edit1.Text:='';
+xy:=true;
+d:=2;
+posit:=0;
+end;
+
+//умножить
+procedure TForm1.Button17Click(Sender: TObject);
+begin
+x:=StrToFloat(Edit1.Text);
+Edit1.Text:='';
+xy:=true;
+d:=3;
+posit:=0;
+end;
+
+//делить
+procedure TForm1.Button18Click(Sender: TObject);
+begin
+x:=StrToFloat(Edit1.Text);
+Edit1.Text:='';
+xy:=true;
+d:=4;
+posit:=0;
+end;
+
+//процент
+procedure TForm1.Button19Click(Sender: TObject);
+var a:real;
+begin
+  a:= StrToFloat(Edit1.Text);
+  a:= a/100;
+  Edit1.Text:=FloatToStr(a);
+end;
+
+//ешка
+procedure TForm1.Button20Click(Sender: TObject);
+var g:real;
+i, t:integer;
+begin
+  if Edit2.Enabled=true then begin
+    Edit2.Enabled:=not(Edit2.Enabled);
+    g:=StrToFloat(Edit1.Text);
+    t:=StrToInt(Edit2.Text);
+    case Radiogroup1.ItemIndex of
+    0:for i:= 1 to t do g:=g*10;
+    1:for i:= 1 to t do g:=g/10;
+    end;
+    Edit1.Text:=FloatToStr(g);
+    Edit2.Text:=' ';
+    Edit2.SelStart:=0;
+  end
+  else begin Edit2.Enabled:=true;
+  end;
+end;
+
+//цифры Начало
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+posit:=posit+1;
+Edit1.Text:=Edit1.Text+'1';
+end; 
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+posit:=posit+1;
+Edit1.Text:=Edit1.Text+'2';
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+posit:=posit+1;
+Edit1.Text:=Edit1.Text+'3';
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+posit:=posit+1;
+Edit1.Text:=Edit1.Text+'4';
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+posit:=posit+1;
+Edit1.Text:=Edit1.Text+'5';
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+begin
+posit:=posit+1;
+Edit1.Text:=Edit1.Text+'6';
+end;
+
+procedure TForm1.Button7Click(Sender: TObject);
+begin
+cis:=Edit1.Text;
+posit:=posit+1;
+cis:=cis+'7';
+Edit1.Text:=Edit1.Text+'7';
+end;
+
+procedure TForm1.Button8Click(Sender: TObject);
+begin
+posit:=posit+1;
+Edit1.Text:=Edit1.Text+'8';
+end;
+
+procedure TForm1.Button9Click(Sender: TObject);
+begin
+posit:=posit+1;
+Edit1.Text:=Edit1.Text+'9';
+end;
+
+//анти ешка
+procedure TForm1.Edit2Change(Sender: TObject);
+var p, s, i, t:integer;
+b:string;
+begin
+t:=0;
+s:=0;
+b:=Edit2.Text;
+for i:= 1 to Length(b) do
+  case b[i] of
+    '0','1','2','3','4','5','6','7','8','9':Edit2.Text:=Edit2.Text;
+    else begin
+      b[i]:=' ';
+      Edit2.Text:=b;
+      Edit2.SelStart:=(pos(' ',Edit2.Text))-1;
+    end;
+  end;
+end;
+
+procedure TForm1.Button10Click(Sender: TObject);
+begin
+posit:=posit+1;
+Edit1.Text:=Edit1.Text+'0';
+end;
+//цифры Конец
+
+//решение
+procedure TForm1.Button12Click(Sender: TObject);
+begin
+if xy=true then begin
+  y:=StrToFloat(Edit1.Text);
+  case d of
+    1: b:=x+y;
+    2: b:=x-y;
+    3: b:=x*y;
+    4: b:=x/y;
+  end;
+  xy:=false;
+  Edit1.Text:=FloatToStr(b);
+end;
+end;
+
+end.

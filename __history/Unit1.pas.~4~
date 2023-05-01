@@ -1,0 +1,153 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Edit1: TEdit;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Button10: TButton;
+    Button11: TButton;
+    Button12: TButton;
+    Button13: TButton;
+    Button14: TButton;
+    Button15: TButton;
+    Button16: TButton;
+    Button17: TButton;
+    Button18: TButton;
+    Button19: TButton;
+    Button20: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure Button19Click(Sender: TObject);
+    procedure Button13Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  posit:integer;
+  cis: string[11];
+
+implementation
+
+{$R *.dfm}
+
+//стереть 1
+procedure TForm1.Button13Click(Sender: TObject);
+var s,s1:string[11];
+i:integer;
+begin
+  s1:=Edit1.Text;
+  if posit=1 then Edit1.Text:='';
+  if posit=2 then Edit1.Text:='';
+  for i:= 1 to posit-1 do s[i]:=s1[i];
+  Edit1.Text:=s;
+  posit:=posit-1;
+end;
+
+//процент
+procedure TForm1.Button19Click(Sender: TObject);
+var a:real;
+begin
+  a:= StrToFloat(Edit1.Text);
+  a:= a/100;
+  Edit1.Text:=FloatToStr(a);
+end;
+
+//цифры Начало
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+posit:=posit+1;
+cis:=cis+'1';
+Edit1.Text:=cis;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+posit:=posit+1;
+cis:=cis+'2';
+Edit1.Text:=cis;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+posit:=posit+1;
+cis:=cis+'3';
+Edit1.Text:=cis;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+posit:=posit+1;
+cis:=cis+'4';
+Edit1.Text:=cis;
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+posit:=posit+1;
+cis:=cis+'5';
+Edit1.Text:=cis;
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+begin
+posit:=posit+1;
+cis:=cis+'6';
+Edit1.Text:=cis;
+end;
+
+procedure TForm1.Button7Click(Sender: TObject);
+begin
+posit:=posit+1;
+cis:=cis+'7';
+Edit1.Text:=cis;
+end;
+
+procedure TForm1.Button8Click(Sender: TObject);
+begin
+posit:=posit+1;
+cis:=cis+'8';
+Edit1.Text:=cis;
+end;
+
+procedure TForm1.Button9Click(Sender: TObject);
+begin
+posit:=posit+1;
+cis:=cis+'9';
+Edit1.Text:=cis;
+end;
+
+procedure TForm1.Button10Click(Sender: TObject);
+begin
+posit:=posit+1;
+cis:=cis+'0';
+Edit1.Text:=cis;
+end;
+//цифры Конец
+
+end.
